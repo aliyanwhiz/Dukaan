@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UserOutlined,
+  HomeOutlined,
   LogoutOutlined
 } from '@ant-design/icons';
+
 import { FaUsersCog } from "react-icons/fa";
-import {MdOutlineInventory } from "react-icons/md";
+import { MdOutlineInventory } from "react-icons/md";
 import { IoReceiptSharp } from "react-icons/io5";
 import { GiRolledCloth } from "react-icons/gi";
 import { Button, Layout, Menu, theme } from 'antd';
@@ -15,7 +16,11 @@ import { Link } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 
-const DefaultLayout:React.FC = () => {
+interface Props {
+    children: React.ReactNode;
+} 
+
+const DefaultLayout: React.FC<Props> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -25,8 +30,8 @@ const DefaultLayout:React.FC = () => {
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" >
-        <div className='logo' >
-          {collapsed ? <GiRolledCloth  color='fff' size={30} /> : <h1 className='logotext'>Dukaan</h1>}
+          <div className='logo' >
+            {collapsed ? <GiRolledCloth  color='fff' size={30} /> : <h1 className='logotext'>Dukaan</h1>}
           </div>
         </div>
         <Menu
@@ -38,7 +43,7 @@ const DefaultLayout:React.FC = () => {
           mode="inline"
           defaultSelectedKeys={[window.location.pathname]}
         >
-          <Menu.Item key='/' icon={<UserOutlined />}>
+          <Menu.Item key='/' icon={<HomeOutlined />}>
               <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item key='/bills' icon={<IoReceiptSharp />}>
@@ -51,7 +56,7 @@ const DefaultLayout:React.FC = () => {
               <Link to="/customers">Customers</Link>
           </Menu.Item>
           <Menu.Item key='/logout' icon={<LogoutOutlined />}>
-              Customers
+              Logout
           </Menu.Item>
         </Menu>
       </Sider>
@@ -77,7 +82,7 @@ const DefaultLayout:React.FC = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          <h1>Content</h1>
+          {children}
         </Content>
       </Layout>
     </Layout>
