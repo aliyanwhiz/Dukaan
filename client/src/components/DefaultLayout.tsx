@@ -1,12 +1,17 @@
+import '../styles/DefaultLayout.css'
 import React, { useState } from 'react';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
+import { FaUsersCog } from "react-icons/fa";
+import {MdOutlineInventory } from "react-icons/md";
+import { IoReceiptSharp } from "react-icons/io5";
+import { GiRolledCloth } from "react-icons/gi";
 import { Button, Layout, Menu, theme } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 
@@ -19,29 +24,36 @@ const DefaultLayout:React.FC = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
+        <div className="demo-logo-vertical" >
+        <div className='logo' >
+          {collapsed ? <GiRolledCloth  color='fff' size={30} /> : <h1 className='logotext'>Dukaan</h1>}
+          </div>
+        </div>
         <Menu
+          style={{
+              margin:'20px 0px',
+              padding:'0px 15px'
+          }}
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
-        />
+          defaultSelectedKeys={[window.location.pathname]}
+        >
+          <Menu.Item key='/' icon={<UserOutlined />}>
+              <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item key='/bills' icon={<IoReceiptSharp />}>
+              <Link to="/bills">Bills</Link>
+          </Menu.Item>
+          <Menu.Item key='/items' icon={<MdOutlineInventory />}>
+              <Link to="/items">Items</Link>
+          </Menu.Item>
+          <Menu.Item key='/customers' icon={<FaUsersCog />}>
+              <Link to="/customers">Customers</Link>
+          </Menu.Item>
+          <Menu.Item key='/logout' icon={<LogoutOutlined />}>
+              Customers
+          </Menu.Item>
+        </Menu>
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }}>
@@ -60,12 +72,12 @@ const DefaultLayout:React.FC = () => {
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 628,
+            height: '100vh',
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          <h1>Content</h1>
         </Content>
       </Layout>
     </Layout>

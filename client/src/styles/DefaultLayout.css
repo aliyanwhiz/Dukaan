@@ -1,0 +1,8 @@
+.logo{
+    margin:25px;
+    .logotext{
+        color:#fff;
+        text-align:center;
+        margin: -10px;
+    }
+}
