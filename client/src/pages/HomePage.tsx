@@ -5,20 +5,20 @@ import axios from 'axios'
 
 const HomePage:React.FC = () => {
   
-  const [allData, setallData] = useState([]);
+  const [allData, setAllData] = useState([]);
   useEffect(() => {
-    const getAllData = async () => {
+    const fetchData = async () => {
       try {
-        const { data } = await axios.get("/api/items/get-item");
-        setallData(data);
-        console.log(data);
+        const response = await axios.get("/api/items/get-item");
+        setAllData(response.data);
+        console.log(response.data);
       } catch (error) {
-        console.log(error,allData);
+        console.error("Error fetching data:", error);
       }
     };
   
-    getAllData();
-  });
+    fetchData();
+  }, []);
   
   return (
     <DefaultLayout>
