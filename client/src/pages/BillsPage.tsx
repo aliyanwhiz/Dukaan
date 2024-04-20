@@ -1,8 +1,11 @@
 import React from 'react'
+import DefaultLayout from '../components/DefaultLayout'
 
-const BillsPage = () => {
+const BillsPage:React.FC = () => {
   return (
-    <div>BillsPage</div>
+    <DefaultLayout>
+      <h1>Bills Page</h1>
+    </DefaultLayout>
   )
 }
 

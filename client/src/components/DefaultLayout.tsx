@@ -26,6 +26,35 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  // Updated to use `items` prop instead of `children` for Menu component
+  const menuItems = [
+    {
+      key: '/',
+      icon: <HomeOutlined />,
+      label: <Link to="/">Home</Link>,
+    },
+    {
+      key: '/bills',
+      icon: <IoReceiptSharp />,
+      label: <Link to="/bills">Bills</Link>,
+    },
+    {
+      key: '/items',
+      icon: <MdOutlineInventory />,
+      label: <Link to="/items">Items</Link>,
+    },
+    {
+      key: '/customers',
+      icon: <FaUsersCog />,
+      label: <Link to="/customers">Customers</Link>,
+    },
+    {
+      key: '/logout',
+      icon: <LogoutOutlined />,
+      label: 'Logout',
+    },
+  ];
+
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -42,23 +71,8 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[window.location.pathname]}
-        >
-          <Menu.Item key='/' icon={<HomeOutlined />}>
-              <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item key='/bills' icon={<IoReceiptSharp />}>
-              <Link to="/bills">Bills</Link>
-          </Menu.Item>
-          <Menu.Item key='/items' icon={<MdOutlineInventory />}>
-              <Link to="/items">Items</Link>
-          </Menu.Item>
-          <Menu.Item key='/customers' icon={<FaUsersCog />}>
-              <Link to="/customers">Customers</Link>
-          </Menu.Item>
-          <Menu.Item key='/logout' icon={<LogoutOutlined />}>
-              Logout
-          </Menu.Item>
-        </Menu>
+          items={menuItems} // Updated to use `items` prop
+        />
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }}>
