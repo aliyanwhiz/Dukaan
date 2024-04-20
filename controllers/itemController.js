@@ -19,5 +19,15 @@ const addItemController = async (req, res) => {
         console.log(error);
     }
 }
+const editItemController = async (req, res) => {
+    // try {
+    //     const newItem = new Items(req.body)
+    //     await newItem.save();
+    //     res.status(200).send('item Created SuccessFully!')
+    // } catch (error) {
+    //     res.status(400).send("error :" , error)
+    //     console.log(error);
+    // }
+}
 
-module.exports = { getItemController,addItemController }
+module.exports = { getItemController,addItemController,editItemController }

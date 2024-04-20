@@ -26,7 +26,6 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  // Updated to use `items` prop instead of `children` for Menu component
   const menuItems = [
     {
       key: '/',
@@ -71,7 +70,7 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[window.location.pathname]}
-          items={menuItems} // Updated to use `items` prop
+          items={menuItems}
         />
       </Sider>
       <Layout>
@@ -91,7 +90,6 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
           style={{
             margin: '24px 16px',
             padding: 24,
-            height: '100vh',
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
