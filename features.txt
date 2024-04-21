@@ -2,3 +2,4 @@
 2. They can edit that entry
 3. Operator should be able to fetch entire sales data or data between the range provided or range given
 4. operatoe should be able to make khata/account where they can add entry 
+t. this shall be done by a month completely 
