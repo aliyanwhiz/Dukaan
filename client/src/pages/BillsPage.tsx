@@ -4,7 +4,7 @@ import DefaultLayout from '../components/DefaultLayout'
 const BillsPage:React.FC = () => {
   return (
     <DefaultLayout>
-      <h1>Bills Page ultra for pushing need</h1>
+      <h1>Bills Page ultra for pushing need to</h1>
     </DefaultLayout>
   )
 }
