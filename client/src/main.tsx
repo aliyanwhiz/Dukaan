@@ -1,11 +1,18 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App'; // Adjust the import path according to your file structure
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import App from './App'; 
 
-const container = document.getElementById('root');
-const root = createRoot(container!); // Adjusted to assert that container is non-null
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const Main = () => {
+  const container = document.getElementById('root');
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    container
+  );
+  
+  return null;
+}
+
+export default Main;

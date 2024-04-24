@@ -21,7 +21,7 @@ interface Props {
 } 
 
 const DefaultLayout: React.FC<Props> = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
