@@ -3,7 +3,7 @@ const initailState = {
     cartItems: []
 }
 
-export const rootReducer = (state=initailState,action:any) => {
+export const rootReducer = (state=initailState, action: { type: string }) => {
     switch (action.type) {
         
         default:
